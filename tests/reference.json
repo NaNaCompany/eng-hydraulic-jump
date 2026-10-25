@@ -1,0 +1,56 @@
+{
+  "id": "E135",
+  "value": 0.7140137445435882,
+  "reference70": "0.7140137445435882044206437991396281562502142991064810635269024025468809",
+  "method": "Independent Python Decimal with 80-digit working precision, reported to 70 significant digits; direct physical formula. E140 uses 260-step dimensional-wavenumber bisection, independent of the runtime dimensionless solver.",
+  "cases": [
+    {
+      "name": "analytic Froude three",
+      "values": {
+        "depth": 1,
+        "v": 3,
+        "g": 1
+      },
+      "expected": 3.7720018726587656,
+      "reference70": "3.772001872658765583935824163119853217297227664766641120954325626885824"
+    },
+    {
+      "name": "just supercritical",
+      "values": {
+        "depth": 1,
+        "v": 1.000000000001,
+        "g": 1
+      },
+      "expected": 1.0000000000013334,
+      "reference70": "1.000000000001333333333333407407407407341563786008287151348879696794188"
+    },
+    {
+      "name": "finite depth despite huge Froude",
+      "values": {
+        "depth": 1e-200,
+        "v": 1e+200,
+        "g": 1
+      },
+      "expected": 1.414213562373095e+100,
+      "reference70": "1.414213562373095048801688724209698078569671875376948073176679737990732e+100"
+    },
+    {
+      "name": "critical flow rejected",
+      "values": {
+        "depth": 1,
+        "v": 2,
+        "g": 4
+      },
+      "throws": true
+    },
+    {
+      "name": "subcritical flow rejected",
+      "values": {
+        "depth": 1,
+        "v": 1,
+        "g": 4
+      },
+      "throws": true
+    }
+  ]
+}

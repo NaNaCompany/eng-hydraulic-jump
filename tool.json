@@ -1,0 +1,60 @@
+{
+  "category": "유체역학",
+  "category_en": "Fluid mechanics",
+  "id": "E135",
+  "slug": "eng-hydraulic-jump",
+  "title": "도수 후 수심 계산기",
+  "title_en": "Hydraulic Jump Sequent Depth Calculator",
+  "fields": [
+    {
+      "key": "depth",
+      "label": "도수 전 수심 y₁",
+      "label_en": "Upstream depth y₁",
+      "dimension": "length",
+      "example": 0.2,
+      "constraint": "positive",
+      "display_unit": "m",
+      "display_value": "0.20000000000000001"
+    },
+    {
+      "key": "v",
+      "label": "도수 전 평균 유속 V₁",
+      "label_en": "Upstream mean speed V₁",
+      "dimension": "speed",
+      "example": 4,
+      "constraint": "positive",
+      "display_unit": "ms",
+      "display_value": "4"
+    },
+    {
+      "key": "g",
+      "label": "중력가속도",
+      "label_en": "Gravitational acceleration",
+      "dimension": "acceleration",
+      "example": 9.80665,
+      "constraint": "positive",
+      "display_unit": "ms2",
+      "display_value": "9.8066499999999994"
+    }
+  ],
+  "result_label": "도수 후 대응 수심 y₂",
+  "result_label_en": "Sequent downstream depth y₂",
+  "result_dimension": "length",
+  "formula": "Fr₁ = V₁/√(gy₁); y₂ = y₁[√(1+8Fr₁²)−1]/2",
+  "purpose": "수평 직사각 수로의 운동량 보존식으로 상류 사류에 대응하는 도수 후 수심을 계산합니다.",
+  "purpose_en": "Calculate the downstream sequent depth corresponding to supercritical upstream flow in a horizontal rectangular channel using momentum conservation.",
+  "assumptions": "폭이 일정한 수평 직사각 수로이며 도수 양쪽 단면의 압력은 정수압 분포입니다. 마찰·외력이 도수 운동량 수지에 미치는 영향은 무시합니다. 도수 전 Fr₁ > 1이 필요합니다. 실제 도수 위치나 안정성은 하류 수심 등 추가 조건에 달려 있습니다.",
+  "assumptions_en": "Required: a constant-width horizontal rectangular channel, hydrostatic pressure at both sections, and upstream Fr₁ > 1. Neglect friction and external-force contributions to the jump momentum balance. Actual jump location and stability also depend on tailwater and other conditions.",
+  "sources": [
+    {
+      "label": "FHWA · Hydraulic Design of Energy Dissipators, hydraulic jump sequent depth",
+      "url": "https://www.fhwa.dot.gov/engineering/hydraulics/pubs/06086/hec14.pdf"
+    }
+  ],
+  "condition": "수평 직사각 수로와 Fr₁ > 1인 도수 전 흐름을 확인했습니다.",
+  "condition_en": "I confirmed a horizontal rectangular channel and supercritical upstream flow with Fr₁ > 1.",
+  "site": "https://nanalab.kr/eng-hydraulic-jump/",
+  "repository": "https://github.com/NaNaCompany/eng-hydraulic-jump",
+  "groups": [],
+  "output_unit": "m"
+}
